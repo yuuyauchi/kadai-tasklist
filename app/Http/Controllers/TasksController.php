@@ -119,5 +119,11 @@ class TasksController extends Controller
     public function destroy($id)
     {
         //
+        $task = Task::findOrFail($id);
+        // メッセージを削除
+        $task->delete();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 }
